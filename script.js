@@ -21,6 +21,7 @@ function startGame() {
   document.querySelector(".container").classList.add("visible");
   document.getElementById("message").classList.add("visible");
   document.getElementById("score").classList.add("visible");
+  document.getElementById("timer").classList.remove("visible");
 }
 
 function createBoard(size) {
@@ -48,27 +49,31 @@ function makeMove(row, col) {
     cell.innerText = currentPlayer;
     cell.classList.add(currentPlayer);
     if (checkWin(row, col)) {
-      document.getElementById(
-        "message"
-      ).innerText = `${currentPlayer} wins this round!`;
-      if (currentPlayer === "X") xWins++;
-      else oWins++;
-      updateScore();
-      if (xWins === roundsToWin) {
-        alert("Player X wins the game!");
-        resetGame();
-      } else if (oWins === roundsToWin) {
-        alert("Player O wins the game!");
-        resetGame();
-      } else {
-        setTimeout(startGame, 2000);
-      }
+      showCustomAlert(`${currentPlayer} wins this round!`, () => {
+        if (currentPlayer === "X") xWins++;
+        else oWins++;
+        updateScore();
+        if (xWins === roundsToWin) {
+          showCustomAlert("Player X wins the game!", () => {
+            resetGame();
+            startGame();
+          });
+        } else if (oWins === roundsToWin) {
+          showCustomAlert("Player O wins the game!", () => {
+            resetGame();
+            startGame();
+          });
+        } else {
+          resetBoard();
+        }
+      });
       return;
     } else if (board.flat().every((cell) => cell !== "")) {
-      document.getElementById("message").innerText = "It's a draw!";
-      roundsPlayed++;
-      updateScore();
-      setTimeout(startGame, 2000);
+      showCustomAlert("It's a draw!", () => {
+        roundsPlayed++;
+        updateScore();
+        resetBoard();
+      });
       return;
     }
     currentPlayer = currentPlayer === "X" ? "O" : "X";
@@ -111,4 +116,49 @@ function resetGame() {
   document.querySelector(".container").classList.remove("visible");
   document.getElementById("message").classList.remove("visible");
   document.getElementById("score").classList.remove("visible");
+}
+
+function resetBoard() {
+  board = Array(size)
+    .fill()
+    .map(() => Array(size).fill(""));
+  const cells = document.querySelectorAll(".cell");
+  cells.forEach((cell) => {
+    cell.innerText = "";
+    cell.classList.remove("X", "O");
+  });
+}
+
+function startNewRound() {
+  document.getElementById("timer").classList.add("visible");
+  let countdown = 3;
+  const timerElement = document.getElementById("countdown");
+  timerElement.innerText = countdown;
+
+  const countdownInterval = setInterval(() => {
+    countdown--;
+    timerElement.innerText = countdown;
+    if (countdown === 0) {
+      clearInterval(countdownInterval);
+      document.getElementById("timer").classList.remove("visible");
+      startGame();
+    }
+  }, 1000);
+}
+
+function showCustomAlert(message, callback) {
+  const customAlert = document.createElement("div");
+  customAlert.classList.add("custom-alert");
+  customAlert.innerHTML = `
+        <div class="custom-alert-content">
+            <p>${message}</p>
+            <button id="close-alert">OK</button>
+        </div>
+    `;
+  document.body.appendChild(customAlert);
+
+  document.getElementById("close-alert").addEventListener("click", () => {
+    customAlert.remove();
+    if (callback) callback();
+  });
 }
