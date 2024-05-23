@@ -177,14 +177,6 @@ button:hover {
   background: #21a1f1;
 }
 
-/* Media query for smaller screens */
-@media (max-width: 600px) {
-  .cell {
-    width: calc(min(5vw, 90% / var(--size)));
-    height: calc(min(5vw, 90% / var(--size)));
-    font-size: min(5vw, calc(45% / var(--size)));
-  }
-}
 /* Media Queries for larger screens */
 @media (min-width: 600px) {
   h1 {
