@@ -65,13 +65,13 @@ button:hover {
 
 #game-board {
   display: grid;
-  gap: 2vw;
+  gap: 0.3vw;
   margin: 20px 0;
 }
 
 .cell {
-  width: 15vw;
-  height: 15vw;
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,7 +79,7 @@ button:hover {
   border: 2px solid #3b3f45;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 8vw;
+  font-size: calc(45% / var(--size));
   transition: background-color 0.3s, transform 0.3s;
 }
 
@@ -123,6 +123,68 @@ button:hover {
   font-weight: bold;
 }
 
+/* Timer styling */
+#timer {
+  display: none;
+  font-size: 6vw;
+  margin: 20px 0;
+  color: #61dafb;
+}
+
+#timer.visible {
+  display: block;
+}
+
+/* Custom alert box styling */
+.custom-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.custom-alert-content {
+  background: #3b3f45;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.custom-alert p {
+  margin-bottom: 20px;
+  font-size: 5vw;
+}
+
+.custom-alert button {
+  padding: 10px 20px;
+  border: none;
+  background: #61dafb;
+  color: #282c34;
+  font-size: 5vw;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.custom-alert button:hover {
+  background: #21a1f1;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .cell {
+    width: calc(min(5vw, 90% / var(--size)));
+    height: calc(min(5vw, 90% / var(--size)));
+    font-size: min(5vw, calc(45% / var(--size)));
+  }
+}
 /* Media Queries for larger screens */
 @media (min-width: 600px) {
   h1 {
@@ -143,8 +205,8 @@ button:hover {
   }
 
   .cell {
-    width: 60px;
-    height: 60px;
+    width: 33px;
+    height: 33px;
     font-size: 28px;
   }
 
@@ -154,5 +216,17 @@ button:hover {
 
   #score p {
     font-size: 14px;
+  }
+
+  #timer {
+    font-size: 16px;
+  }
+
+  .custom-alert p {
+    font-size: 16px;
+  }
+
+  .custom-alert button {
+    font-size: 16px;
   }
 }
