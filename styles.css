@@ -177,8 +177,15 @@ button:hover {
   background: #21a1f1;
 }
 
+@media screen and (max-width: 768px) {
+  .cell {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
+
 /* Media Queries for larger screens */
-@media (min-width: 600px) {
+@media (min-width: 768px) {
   h1 {
     font-size: 28px;
   }
