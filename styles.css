@@ -74,11 +74,7 @@ button:hover {
 .cell {
   width: 40px;
   height: 40px;
-<<<<<<< HEAD
   margin: 0 auto !important;
-=======
-  margin : 0 auto !important;
->>>>>>> 1d75097c377f874736741e9c5dbeb44a0b7b2517
   display: flex;
   justify-content: center;
   align-items: center;
