@@ -5,9 +5,12 @@ Customizable Win Streak: Users can define the number of consecutive marks (m) re
 
 User Interface: The game has a clean, simple, and intuitive user interface.
 
-Game Logic: The core game logic to handle turns, check for a win or draw, and display the result has been implemented.
+Game Logic: The core game logic to handle
+turns, check for a win or draw, and display the result has been implemented.
 
 Responsiveness: The game is responsive and playable on both desktop and mobile devices.
+
+![image](https://github.com/nikhiltomar2690/custom-tic-tac-toe-assignment/assets/81950754/249a219a-f8eb-4ef3-a111-e5d6fc5c6af3)
 
 **How to Run**
 1. Download the repository as a zip file.
