@@ -74,7 +74,11 @@ button:hover {
 .cell {
   width: 40px;
   height: 40px;
+<<<<<<< HEAD
   margin: 0 auto !important;
+=======
+  margin : 0 auto !important;
+>>>>>>> 1d75097c377f874736741e9c5dbeb44a0b7b2517
   display: flex;
   justify-content: center;
   align-items: center;
@@ -183,8 +187,8 @@ button:hover {
 
 @media (max-width: 768px) {
   .cell {
-    height: 25px;
-    width: 25px;
+    width: 27px !important;
+    height: 27px !important;
   }
 }
 
