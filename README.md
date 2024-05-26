@@ -1,4 +1,4 @@
-Features
+**Features**
 Customizable Grid Size: Users can define the size of the grid (n x n), where n is any integer between 3 and 10.
 
 Customizable Win Streak: Users can define the number of consecutive marks (m) required to win the game, where m is any integer between 3 and n.
@@ -9,7 +9,7 @@ Game Logic: The core game logic to handle turns, check for a win or draw, and di
 
 Responsiveness: The game is responsive and playable on both desktop and mobile devices.
 
-**How to Run
+**How to Run**
 1. Download the repository as a zip file.
 2. Extract the zip file.
 3. Open the folder in Vscode.
