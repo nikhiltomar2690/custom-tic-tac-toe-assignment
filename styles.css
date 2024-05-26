@@ -66,12 +66,15 @@ button:hover {
 #game-board {
   display: grid;
   gap: 0.3vw;
-  margin: 20px 0;
+  margin: 20px auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .cell {
   width: 40px;
   height: 40px;
+  margin: 0 auto !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,6 +84,7 @@ button:hover {
   cursor: pointer;
   font-size: calc(45% / var(--size));
   transition: background-color 0.3s, transform 0.3s;
+  text-align: center; /* Ensure text is centered */
 }
 
 .cell:hover {
@@ -177,10 +181,10 @@ button:hover {
   background: #21a1f1;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .cell {
-    width: 30px !important;
-    height: 30px !important;
+    height: 25px;
+    width: 25px;
   }
 }
 
@@ -204,8 +208,8 @@ button:hover {
   }
 
   .cell {
-    width: 33px;
-    height: 33px;
+    width: 32px;
+    height: 32px;
     font-size: 28px;
   }
 
